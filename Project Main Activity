@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+    <TextView
+            android:id="@+id/isExpression"//Setup for the Expression function 
+            android:layout_width="match_parent"
+            android:layout_height="80sp"
+            android:textColor="@color/numberButton"
+            android:gravity="end"
+            android:textSize="40sp"
+            android:ellipsize="start"
+            android:singleLine="true"/>
+    <TextView
+            android:id="@+id/isResult"//Setup for Result function
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textColor="@color/numberButton"
+            android:gravity="end"
+            android:textSize="30sp"
+            android:ellipsize="end"
+            android:singleLine="true"/>
+    <androidx.appcompat.widget.LinearLayoutCompat //Vertical layout setting
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        //Horizontal layout setting for 5 rows
+	<androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatTextView //Setup for row 2
+                    android:id="@+id/isSeven"            //7, 8, 9, Multiply
+                    style="@style/NumberButtonStyle"
+                    android:text="7"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/isEight"
+                    style="@style/NumberButtonStyle"
+                    android:text="8"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/isNine"
+                    style="@style/NumberButtonStyle"
+                    android:text="9"/>
+            
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatTextView //Set up for row 3
+                    android:id="@+id/isFour"             // 4, 5, 6, Subtract
+                    style="@style/NumberButtonStyle"
+                    android:text="4"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/isFive"
+                    style="@style/NumberButtonStyle"
+                    android:text="5"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/isSix"
+                    style="@style/NumberButtonStyle"
+                    android:text="6"/>
+        
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatTextView //Set up for row 4
+                    android:id="@+id/isOne"              //1, 2, 3, Add
+                    style="@style/NumberButtonStyle"
+                    android:text="1"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/isTwo"
+                    style="@style/NumberButtonStyle"
+                    android:text="2"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/isThree"
+                    style="@style/NumberButtonStyle"
+                    android:text="3"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+            <androidx.appcompat.widget.AppCompatTextView //Set up for row 5
+                    android:id="@+id/isBack"              //Back,
+                    style="@style/NumberButtonStyle"     //0, ENTER
+                    android:text="BACK"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/isZero"
+                    style="@style/NumberButtonStyle"
+                    android:text="0"/>
+           
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/isEquals"
+                    style="@style/operatorButtonStyle"
+                    android:text="ENTER"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
