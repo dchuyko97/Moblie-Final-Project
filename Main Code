@@ -1,0 +1,75 @@
+//Main activity
+package com.example.calculator
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log
+import kotlinx.android.synthetic.main.activity_main.*
+import net.objecthunter.exp4j.ExpressionBuilder //importing the basic 
+                                                //arithmetic calculator 
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        //Numbers for Calculator
+        isOne.setOnClickListener { appendOnExpresstion("1",true) }
+        isTwo.setOnClickListener { appendOnExpresstion("2",true) }
+        isThree.setOnClickListener { appendOnExpresstion("3",true) }
+        isFour.setOnClickListener { appendOnExpresstion("4",true) }
+        isFive.setOnClickListener { appendOnExpresstion("5",true) }
+        isSix.setOnClickListener { appendOnExpresstion("6",true) }
+        isSeven.setOnClickListener { appendOnExpresstion("7",true) }
+        isEight.setOnClickListener { appendOnExpresstion("8",true) }
+        isNine.setOnClickListener { appendOnExpresstion("9",true) }
+        isZero.setOnClickListener { appendOnExpresstion("0",true) }
+       
+
+        //Clear function for the calculator
+	isClear.setOnClickListener {
+            isExpression.text = ""
+            isResult.text = ""
+        }
+        //DEL function for the calculator
+        isBack.setOnClickListener {
+            val string = isExpression.text.toString()
+            if(string.isNotEmpty()){
+                isExpression.text = string.substring(0,string.length-1)
+            }
+            isResult.text = ""
+        }
+        //Function for Equal to show the result of the arithmetic calculation 
+        //performed by the imported net.objecthunter:exp4j:0.4.8
+        isEquals.setOnClickListener {
+            try {
+                val expression = ExpressionBuilder(isExpression.text.toString()).build()
+                val result = expression.evaluate()
+                val longResult = result.toLong()
+                if (result == longResult.toDouble())
+                    isResult.text = longResult.toString()
+                else
+                    isResult.text = result.toString()
+
+            }catch (e:Exception) {
+                Log.d("Exception"," Message : " + e.message)
+            }
+        }
+    }
+    //Function for the calculator to register the input of the user using
+    //the number/operator pads and display the input at the top and remove
+    //the wrong inputted number/operator
+    fun appendOnExpresstion( string: String,  canClear : Boolean){
+
+        if (isResult.text.isNotEmpty()){
+            isExpression.text = ""
+        }
+        if(canClear){
+            isResult.text = ""
+            isExpression.append(string)
+        }else{
+            isExpression.append(isResult.text)
+            isExpression.append(string)
+            isResult.text = ""
+        }
+    }
+}
